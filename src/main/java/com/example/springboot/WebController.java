@@ -11,4 +11,9 @@ public class WebController {
 	public String index() {
 		return "Greetings from Spring Boot!!!";
 	}
+
+	@RequestMapping(value = "/testRyan", method = RequestMethod.GET)
+	public String testRyan() {
+		return "This is Ryan's test for HTTP Get";
+	}
 }
