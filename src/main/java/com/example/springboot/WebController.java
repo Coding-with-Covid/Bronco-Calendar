@@ -16,4 +16,9 @@ public class WebController {
 	public String testRyan() {
 		return "This is Ryan's test for HTTP Get";
 	}
+
+	@Requestmapping(value = "/testJosh", metod = RequestMethod.GET)
+	public String testJosh() {
+		return "This is Josh's test for HTTP get";
+	}
 }
