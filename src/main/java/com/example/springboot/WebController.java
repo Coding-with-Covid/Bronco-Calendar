@@ -23,7 +23,7 @@ public class WebController {
 	}
 	
 	@RequestMapping(value = "/testDuc", method = RequestMethod.GET)
-    public String testDuc() {
-        return "This is Duc's test for HTTP GET";
-    }
+    	public String testDuc() {
+        	return "This is Duc's test for HTTP GET";
+    	}
 }
