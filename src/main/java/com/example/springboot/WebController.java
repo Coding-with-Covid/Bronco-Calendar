@@ -1,5 +1,6 @@
 package com.example.springboot;
 
+import org.apache.commons.io.FilenameUtils;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -54,4 +55,11 @@ public class WebController {
 
         	return test;
     	}
+
+	@RequestMapping(value = "/testCommonsIO", method = RequestMethod.GET)
+	public String testCommonsIO() {
+		String filePath = "\"C:\\\\Users\\\\Ryan\\\\file.txt\"";
+		String extension = FilenameUtils.getExtension(filePath);
+		return extension;
+	}
 }
