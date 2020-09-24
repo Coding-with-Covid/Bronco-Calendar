@@ -1,9 +1,10 @@
-ackage com.example.springboot;
+package com.example.springboot;
 
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.apache.commons.math3.primes.Primes;
+import com.google.gson.Gson;
 
 @RestController
 public class WebController {
@@ -42,4 +43,15 @@ public class WebController {
     		else
     			return "45 is not a prime number";
 	}
+
+	@RequestMapping(value = "/testGson", method = RequestMethod.GET)
+    	public String testGson() {
+
+       		Gson gson = new Gson();
+
+        	String[] arr = {"hello", "world", "!"};
+        	String test = gson.toJson(arr);
+
+        	return test;
+    	}
 }
