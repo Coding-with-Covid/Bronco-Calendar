@@ -38,12 +38,13 @@ public class WebController {
         return "This is Sam's test for HTTP GET";
 	}
 	
-
 	//This is to test the jsoup library
-	public static void jsoupTest() {
+	@RequestMapping(value = "/testJsoup", method = RequestMethod.GET)
+	public String testJsoup() {
+		
 		Document doc;
 		try {
-
+			
 			// need http protocol
 			doc = Jsoup.connect("http://google.com").get();
 
@@ -58,18 +59,17 @@ public class WebController {
 				// get the value from href attribute
 				System.out.println("\nlink : " + link.attr("href"));
 				System.out.println("text : " + link.text());
-
 			}
 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		return "";
 	}
 
    	public static void main(String[] args) {
 		//Add name of method here?
-		jsoupTest();
-
 	}
 }
 
