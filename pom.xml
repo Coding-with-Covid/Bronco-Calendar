@@ -39,6 +39,14 @@
 			<artifactId>thymeleaf</artifactId>
 			<version>3.0.11.RELEASE</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>29.0-jre</version>
+			<!-- or, for Android: -->
+			<version>29.0-android</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
