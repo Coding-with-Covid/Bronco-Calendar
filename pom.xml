@@ -19,7 +19,7 @@
 	</properties>
 
 	<dependencies>
-		
+	
 		<dependency>
   			<!-- jsoup HTML parser library @ https://jsoup.org/ -->
   			<groupId>org.jsoup</groupId>
