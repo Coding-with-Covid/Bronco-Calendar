@@ -28,4 +28,8 @@ public class Event {
     public String toString() {
         return String.format("Event[id=%s, title='%s', dateTime='%s', hostedBy='%s', location='%s', desc='%s']", id, title, dateTime, hostedBy, location, desc);
     }
+
+    public String getTitle() {
+        return title;
+    }
 }
