@@ -12,16 +12,18 @@ public class Event {
     public String hostedBy;
     public String location;
     public String desc;
+    public String[] majors;
 
     public Event() {
     }
 
-    public Event(String title, String dateTime, String hostedBy, String location, String desc) {
+    public Event(String title, String dateTime, String hostedBy, String location, String desc, String[] majors) {
         this.title = title;
         this.dateTime = dateTime;
         this.hostedBy = hostedBy;
         this.location = location;
         this.desc = desc;
+        this.majors = majors;
     }
 
     @Override
