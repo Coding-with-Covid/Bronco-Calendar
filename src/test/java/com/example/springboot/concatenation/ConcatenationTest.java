@@ -35,11 +35,11 @@ public class ConcatenationTest {
 	@Test
     public void testWebPage() throws Exception {
         try (final WebClient webClient = new WebClient()) {
-            final HtmlPage page = webClient.getPage("https://www.events.ucla.edu/");
-            Assert.assertEquals("Events |", page.getTitleText());
+            final HtmlPage page = webClient.getPage("https://asi.cpp.edu/");
+            Assert.assertEquals("ASI, Cal Poly Pomona", page.getTitleText());
 
             final String pageAsText = page.asText();
-            Assert.assertTrue(pageAsText.contains("The UCLA Events Office schedules and manages student extracurricular activities"));
+            Assert.assertTrue(pageAsText.contains("Hey Broncos! Remember to use TurboVote at cpp.turbovote.org to register"));
         }
     }
 }

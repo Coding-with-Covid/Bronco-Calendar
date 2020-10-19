@@ -41,3 +41,4 @@ mvnw
 .idea/modules.xml
 .idea/modules.xml
 .idea/misc.xml
+Run the spring boot server.bat
