@@ -1,64 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>
-        Bronco Calendar
-    </title>
-	<style th:inline="text">
-    body{
-        background: url(https://www.cpp.edu/collins/img/future-students/collins-school-9-4.jpg) no-repeat center center fixed;
-        -webkit-background-size: cover;
-  		-moz-background-size: cover;
- 		-o-background-size: cover;
- 		background-size: cover;
-                    
-    }
-    mark {
-    	background-color: white;
-    	color: green;
-    }
- 
-    
-</style>
+	<meta charset="UTF-8">
+    <meta name= "viewport" content="width=device-width, intial-scale=1.0">
+    <title>Bronco Calendar</title>
+	<link rel="stylesheet" th:href="@{/css/home.css}" />
+    <link rel="stylesheet" href="../static/css/home.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body link="#000" alink="#017bf5" vlink="#000000">
-<br /><br />
-<img src= "https://media-exp1.licdn.com/dms/image/C560BAQH8mLo7H_WXuQ/company-logo_200_200/0?e=2159024400&v=beta&t=XzWwTpZ1F1HZ_OOj_xKkBDX9pcDvsdqOkRFU3E_C7J8" align= "left" width="100" height="100">
-
-<br />
-<h3 align="center">
-
-    <font face="Lato" color="#FFF000" size="4">
-        <a href="#"><mark>Home</mark></a>&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="#"><mark>Calendar</mark></a>&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="events"><mark>Events</mark></a>&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="#"><mark>Login</mark></a>&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="#"><mark>Contact Us</mark></a>
-    </font>
-</h3>
-<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-
-<h1 align="center">
-    <font face="Lato" color="#FFFFFF" size="7">
-        <mark>Welcome to Bronco Calendar</mark>
-    </font>
-</h1>
-
-<h3 align="center">
-    <font face="Lato" color="#FFFFFF" size="5">
-        <mark>Find all CPP events on our calendar</mark>
-    </font>
-</h3>
-<br />
-
-<h3 align="center">
-    <a href="#">
-        <font face="Lato" color="#FFFFFF">
-        	<mark>GET STARTED</mark>
-        </font>
-    </a>
-</h3>
-
+<body>
+	<div class = "header">
+		<div class ="container">
+			<div class ="navbar">
+				<img src= "https://media-exp1.licdn.com/dms/image/C560BAQH8mLo7H_WXuQ/company-logo_200_200/0?e=2159024400&v=beta&t=XzWwTpZ1F1HZ_OOj_xKkBDX9pcDvsdqOkRFU3E_C7J8" class="logo">
+				<nav>
+					<ul>
+						<li><a href="home">Home</a></li>
+						<li><a href="#">Calendar</a></li>
+						<li><a href="events">Events</a></li>
+						<li><a href="#">Login</a></li>
+					</ul>
+				</nav>
+			</div>
+			
+			<div class="content">
+				<h1>Explore <span>Bronco Calendar</span></h1>
+				<p>Bronco Calendar provides all clubs and school related events here!</p>
+			
+				<div class="button-box">
+					<button type="button" ><a href="#">Explore Calendar</button>
+					<button type="button" ><a href="events">Find Events</button>
+				</div>
+			</div>
+		</div>
+	</div>
+		<div class="bottombar">
+				<a href="https://www.facebook.com/" class="fa fa-facebook"></a>
+				<a href="https://twitter.com/?lang=en" class="fa fa-twitter"></a>
+				<a href="https://www.instagram.com/?hl=en" class="fa fa-instagram"></a>
+				<a href="https://www.snapchat.com/" class="fa fa-snapchat-ghost"></a>
+		</div>
 </body>
+
 </html>
