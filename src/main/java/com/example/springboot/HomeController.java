@@ -14,6 +14,11 @@ public class HomeController {
     public String testEvents() {
         return "events.html";
     }
+
+    @RequestMapping(value = "/calendar", method = RequestMethod.GET)
+    public String testCalendar() {
+        return "calendar.html";
+    }
     
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String testLogin() { return "login.html"; }
