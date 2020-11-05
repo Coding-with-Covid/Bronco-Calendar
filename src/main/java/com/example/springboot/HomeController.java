@@ -23,4 +23,6 @@ public class HomeController {
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String testLogin() { return "login.html"; }
 
+    @RequestMapping(value = "/signup", method = RequestMethod.GET)
+    public String testSignUp() { return "signup.html"; }
 }
