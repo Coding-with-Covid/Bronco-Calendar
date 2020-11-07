@@ -1,5 +1,6 @@
 package com.example.springboot;
 
+import org.apache.commons.lang3.StringUtils;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -109,12 +110,15 @@ public class CPPEvents {
     private String parseHour(String text) {
         String cleaned = text.replace("&nbsp;", "");  // Get rid of &nbsp;
 
+        // Remove ending time from string
+        String startTime = StringUtils.substringBefore(cleaned, "-");
+
         // First number we find is our starting time
         Matcher matcher = Pattern.compile("\\d+").matcher(cleaned);
         matcher.find();
         int hour = Integer.valueOf(matcher.group());
 
-        if (cleaned.contains("pm")) hour += 12;  // Add 12 if it's pm for 24hr time
+        if (startTime.contains("pm")) hour += 12;  // Add 12 if it's pm for 24hr time
 
         return String.format("%02d", hour);
     }
@@ -126,6 +130,7 @@ public class CPPEvents {
         if (tokens[0].contains(":")) {  // Look at the minutes for starting time only
             String minutes = tokens[0].substring(tokens[0].lastIndexOf(":") + 1);
             minutes = minutes.replace(" ", "");  // Get rid of space
+            minutes = minutes.replaceAll("\\D+","");  // Don't want am/pm text
             return minutes;
         }
         else {  // If there is no ':', starts at 0 minutes
