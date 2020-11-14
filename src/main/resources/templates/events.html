@@ -1,67 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bronco Calendar Events</title>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bronco Calendar Events</title>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <style>
-		body,h1,h2,h3,h4,h5,h6 {
-			font-family: "Raleway", Arial, Helvetica, sans-serif
-		}
-	</style>
-</head>
-<body>
-    <div class="w3-bar w3-white w3-large">
-        <a href="#" class="w3-bar-item w3-button w3-green w3-mobile"><i class="fa fa-home w3-margin-right"></i>BroncoCalendar</a>
-        <a href="home" class="w3-bar-item w3-button w3-mobile">Home</a>
-        <a href="calendar" class="w3-bar-item w3-button w3-mobile">Calendar</a>
-        <a href="events" class="w3-bar-item w3-button w3-mobile">Events</a>
-        <a href="login" class="w3-bar-item w3-button w3-right w3-green w3-mobile">login</a>
-  </div>
-</body>
+        <style>
+		    body,h1,h2,h3,h4,h5,h6 {
+			    font-family: "Raleway", Arial, Helvetica, sans-serif
+		    }
+	    </style>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bronco Calendar Events</title>
-    <link rel="stylesheet" th:href="@{/events.css}" type="text/css"/>
-    <link rel="stylesheet" href="../static/events.css" type="text/css">
+    <body>
+        <div class="w3-bar w3-white w3-large">
+            <a href="#" class="w3-bar-item w3-button w3-green w3-mobile"><i class="fa fa-home w3-margin-right"></i>BroncoCalendar</a>
+            <a href="home" class="w3-bar-item w3-button w3-mobile">Home</a>
+            <a href="calendar" class="w3-bar-item w3-button w3-mobile">Calendar</a>
+            <a href="events" class="w3-bar-item w3-button w3-mobile">Events</a>
+            <a href="login" class="w3-bar-item w3-button w3-right w3-green w3-mobile">login</a>
+        </div>
+    </body>
+</html>
 
-    <style>
-		body,h1,h2,h3,h4,h5,h6 {
-			font-family: "Raleway", Arial, Helvetica, sans-serif
-		}
-	</style>
-</head>
-<body>
-    <div class="event-container">
-        <h3 class="year">YearHere</h3>
+<html ng-app="appEvents">
+    <!-- This section uses AngularJS -->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bronco Calendar Events</title>
+        <link rel="stylesheet" th:href="@{/events.css}" type="text/css"/>
+        <link rel="stylesheet" href="../static/events.css" type="text/css">
 
-        <div class="event">
-            <div class="event-left">
-                <div class="event-date">
-                    <div class="date">9</div>
-                    <div class="month">November</div>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+        <script src="js/events.js"></script>
+
+        <style>
+		    body,h1,h2,h3,h4,h5,h6 {
+			    font-family: "Raleway", Arial, Helvetica, sans-serif
+		    }
+	    </style>
+    </head>
+
+    <body ng-controller="EventsCtrl">
+        <div class="event-container">
+            <h3 class="year">Year</h3>
+            <div class="event">
+                <div class="event-left">
+                    <div class="event-date">
+                        <div class="date">Day</div>
+                        <div class="month">Month</div>
+                    </div>
                 </div>
-            </div>
-
-            <div class="event-right">
-                <h3 class="event-title">some title here</h3>
-
-                <div class="event-description">
-                    Some event description here:
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                </div>
-
-                <div class="event-timing">
-                    Event time
+                <div class="event-right">
+                    <h3 class="event-title">Event Title</h3>
+                    <div class="event-description">
+                        Event Description:
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    </div>
+                    <div class="event-timing">
+                        Event time
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>

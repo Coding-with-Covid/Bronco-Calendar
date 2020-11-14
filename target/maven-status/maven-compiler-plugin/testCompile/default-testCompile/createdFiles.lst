@@ -1,2 +1,7 @@
+com\example\springboot\calendar\CalendarTest.class
+com\example\springboot\HelloControllerIT.class
 com\example\springboot\daysbetween\DaysBetweenTest.class
 com\example\springboot\eventrepository\EventRepositoryTest.class
+com\example\springboot\HelloControllerTest.class
+com\example\springboot\concatenation\ConcatenationTest.class
+EventList\EventListTest.class
