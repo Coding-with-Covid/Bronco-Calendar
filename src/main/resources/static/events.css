@@ -31,26 +31,42 @@ span{
 
 .event .event-left {
     background: #1c1c1c;
-    min-width: 82px;
+    min-width: 200px;
     display: flex;
-    justify-content: center;
     color: white;
-    padding: 8px 48px;
-    font-weight: bold;
-    text-align: center;
 }
 
-.event .event-left .date {
-    font-size: 56px;
+.event .event-left .event-image {
+    background: black;
+    color: white;
+    padding: 0px;
+    height: 150px;
+    min-width: 200px;
+}
+
+.event .event-left .day {
+    font-size: 36px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 120px;
+    justify-content: left;
+    align-items: null;
+    height: 0px;
+    padding: 8px 16px;
+    text-align: center;
 }
 
 .event .event-left .month {
     font-size: 16px;
+    display: flex;
     font-weight: normal;
+    padding: 8px 72px;
+    justify-content: right;
+    text-align: center;
+}
+
+.event .event-left .year {
+    font-size: 16px;
+    font-weight: normal;
+    text-transform: uppercase;
 }
 
 .event .event-right {
@@ -60,11 +76,28 @@ span{
     padding: 0 24px;
 }
 
+.event .event-right h4.club-name {
+    font-size: 14px;
+    align-items: center;
+    margin: 0px 0px 12px 0px;
+    color: black;
+}
+
 .event .event-right h3.event-title {
     font-size: 24px;
-    margin: 24px 0 10px 0;
+    margin: 10px 0 10px 0;
     color: black;
     text-transform: uppercase;
+}
+
+.event .event-right .event-details {
+    display: flex;
+    align-items: center;
+    width: 400px;
+    height: 24px;
+    padding: 0px;
+    margin: 24px 0;
+    font-size: 14px;
 }
 
 .event .event-right .event-timing {
@@ -78,9 +111,14 @@ span{
     font-size: 14px;
 }
 
-.event .event-right .event-timing img {
-    height: 20px;
-    padding-right: 8px;
+.event .event-right .event-location {
+    background: lightgrey;
+    display: flex;
+    justify-content: right;
+    margin: 10px 0px 10px 20px;
+    width: 300px;
+    padding: 8px;
+    font-size: 14px;
 }
 
 @media (max-width: 550px) {

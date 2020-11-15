@@ -3,6 +3,9 @@ package com.example.springboot.data;
 public class EventProduct {
 
     private String eventTitle;
+    private String clubName;
+    private String imageUrl;
+    private String eventLocation;
     private String eventYear;
     private String eventMonth;
     private String eventDay;
@@ -11,6 +14,18 @@ public class EventProduct {
     
     public String getTitle() {
         return eventTitle;
+    }
+
+    public String getClubName() {
+        return clubName;
+    }
+
+    public String getImageUrl() {
+		return imageUrl;
+	}
+
+    public String getEventLocation() {
+        return eventLocation;
     }
 
     public String getYear() {
@@ -37,11 +52,23 @@ public class EventProduct {
         this.eventTitle = eventTitle;
     }
 
-    public void setYear(String eventYear){
+    public void setClubName(String clubName) {
+        this.clubName = clubName;
+    }
+
+    public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
+    public void setEventLocation(String eventLocation) {
+        this.eventLocation = eventLocation;
+    }
+
+    public void setYear(String eventYear) {
         this.eventYear = eventYear;
     }
 
-    public void setMonth(String eventMonth){
+    public void setMonth(String eventMonth) {
         this.eventMonth = eventMonth;
     }
 
@@ -56,5 +83,4 @@ public class EventProduct {
     public void setDescription(String eventDescription) {
         this.eventDescription = eventDescription;
     }
-
 }

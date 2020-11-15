@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+
+<!-- This part is for the top navigation bar (Home, Calendar, Events, Login) -->
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -26,8 +28,9 @@
     </body>
 </html>
 
+<!-- This part is for the events themselves -->
+<!-- This section uses AngularJS -->
 <html ng-app="appEvents">
-    <!-- This section uses AngularJS -->
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,24 +48,30 @@
 	    </style>
     </head>
 
+    <!-- Have this whole body repeat itself for every event -->
     <body ng-controller="EventsCtrl">
         <div class="event-container">
-            <h3 class="year">Year</h3>
             <div class="event">
                 <div class="event-left">
                     <div class="event-date">
-                        <div class="date">Day</div>
+                        <div class="event-image">Event Image</div>
+                        <div class="day">14</div>
                         <div class="month">Month</div>
+                        
                     </div>
                 </div>
                 <div class="event-right">
                     <h3 class="event-title">Event Title</h3>
+                    <h4 class="club-name">Club Name</h4>
                     <div class="event-description">
                         Event Description:
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Neque magnam magni, et consectetur ipsa dicta sunt eos ab praesentium delectus nemo. 
+                        Explicabo, accusantium totam. Maiores sequi minima aperiam dolores iste.
                     </div>
-                    <div class="event-timing">
-                        Event time
+                    <div class="event-details">
+                        <div class="event-timing">Event time</div>
+                        <div class="event-location">Event location</div>
                     </div>
                 </div>
             </div>

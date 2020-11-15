@@ -1,11 +1,11 @@
 com\example\springboot\Calendar.class
 com\example\springboot\EventRepository.class
-EventList\EventList.class
-com\example\springboot\myBarEvents.class
-com\example\springboot\Concatenation.class
 com\example\springboot\Application.class
 com\example\springboot\Event.class
 com\example\springboot\DaysBetween.class
-com\example\springboot\HomeController.class
 com\example\springboot\WebController.class
+EventList\EventList.class
+com\example\springboot\myBarEvents.class
+com\example\springboot\Concatenation.class
+com\example\springboot\HomeController.class
 com\example\springboot\CPPEvents.class
