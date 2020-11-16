@@ -10,8 +10,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 
 @SpringBootApplication
+@EnableScheduling
 public class Application implements CommandLineRunner {
 
 	@Autowired
@@ -39,9 +42,9 @@ public class Application implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		//repo.deleteAll();
-		updateDatabase();
 	}
 
+	@Scheduled(cron = "0 0 12 * * ?")
 	private void updateDatabase() throws IOException {
 		CPPEvents CppEventHandler = new CPPEvents();
 		ArrayList<Event> cppEvents = CppEventHandler.getCPPEvents();
