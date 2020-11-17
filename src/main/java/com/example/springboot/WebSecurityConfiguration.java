@@ -11,7 +11,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter{
 	    public void configure(HttpSecurity httpSecurity) throws Exception {
 	        httpSecurity.csrf().disable().antMatcher("/**").authorizeRequests()
 	                .antMatchers("/","/calender", "/login", "welcome").authenticated()
-	                .antMatchers("/home").permitAll()
+	                .antMatchers("/home", "/events", "/").permitAll()
 	                .anyRequest().authenticated()
 	                .and()
 	                .oauth2Login().permitAll()
