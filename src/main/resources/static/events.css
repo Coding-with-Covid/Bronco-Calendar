@@ -55,10 +55,10 @@ span{
 }
 
 .event .event-left .month {
-    font-size: 16px;
+    font-size: 14px;
     display: flex;
     font-weight: normal;
-    padding: 8px 72px;
+    padding: 8px 66px;
     justify-content: right;
     text-align: center;
 }
@@ -84,7 +84,7 @@ span{
 }
 
 .event .event-right h3.event-title {
-    font-size: 24px;
+    font-size: 18px;
     margin: 10px 0 10px 0;
     color: black;
     text-transform: uppercase;
