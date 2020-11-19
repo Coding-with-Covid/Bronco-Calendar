@@ -1,0 +1,43 @@
+<h1>Events</h1>
+
+<!-- This part is for the events themselves -->
+<html ng-app="appEvents">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Bronco Calendar Events</title>
+
+      <link rel="stylesheet" href="./events.css" type="text/css">
+      <style>
+        body,h1,h2,h3,h4,h5,h6 {
+          font-family: "Raleway", Arial, Helvetica, sans-serif
+        }
+      </style>
+  </head>
+
+  <!-- Have this whole body repeat itself for every event -->
+  <body ng-controller="EventsCtrl">
+    <% events.forEach(function(event){ %>
+      <div class="event-container">
+        <div class="event">
+          <div class="event-left">
+            <div class="event-date">
+              <div class="event-image">Event Image</div>
+              <div class="day">14</div>
+              <div class="month">Month</div>
+            </div>
+          </div>
+          <div class="event-right">
+            <h3 class="event-title"><%=event.title%></h3>
+            <h4 class="club-name"><%=event.hostedBy%></h4>
+            <div class="event-description"><%=event.desc%></div>
+          </div>
+          <div class="event-details">
+            <div class="event-timing">Event Time</div>
+            <div class="event-location">Event location</div>
+          </div>
+        </div>
+      </div>
+    <% }); %>
+  </body>
+</html>

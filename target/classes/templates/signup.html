@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta name= "viewport" content="width=device-width, intial-scale=1.0">
+    <title>Bronco Calendar - Create Account</title>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<link rel="stylesheet" th:href="@{/css/signup.css}" />
+    <link rel="stylesheet" href="../static/css/signup.css" type="text/css">
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</head>
+
+
+<body>
+
+	<div class="login-div">
+	
+		<div class="row">
+  			 <div class="col s12"><a href="login"><b>Back</b></a></div>
+  		</div>
+		
+		<div class="row center-align">
+			<h5>Create Account</h5>
+			<h6>Enter your email</h6>
+		</div>
+		
+		<div class="row">
+    		<div class="input-field col s12">
+      			<input id="username_input" type="text" class="validate" required>
+      			<label for="usernamet_input">Username</label>
+    		</div>
+  		</div>
+		
+  		<div class="row">
+    		<div class="input-field col s12">
+      			<input id="email_input" type="email" class="validate" required>
+      			<label for="email_input">Email</label>
+    		</div>
+  		</div>
+  		
+  		<div class="row">
+    		<div class="input-field col s12">
+      			<input id="major_input" type="text" class="validate">
+      			<label for="major_input">College Major</label>
+    		</div>
+  		</div>
+  		
+  		<div class="row">
+   	 		<div class="input-field col s12">
+      			<input id="password_input" type="password" class="validate" required>
+      			<label for="password_input">Password</label>
+    		</div>
+  		</div>
+  		
+  		<div class="row">
+   	 		<div class="input-field col s12">
+      			<input id="password_input" type="password" class="validate" required>
+      			<label for="password_input">Confirm Password</label>
+    		</div>
+  		</div>
+  		
+  		<div class="row">
+  			 <div class="col s12">Already have an account? <a href="login"><b>Login</b></a></div>
+  		</div>
+  		
+  		<div class="row">
+  			 <div class="col s12">Not your computer? Use a Private Window to sign in. <a href="#"><b>Learn more</b></a></div>
+  		</div>
+  		
+  		<div class="row"></div>
+  		
+  		<div class="row">
+        	<div class="col s6 right-align">
+        		<button class="waves-effect waves-light btn" type="submit" form="form1" value="Submit">Create Account</button>
+        	</div>
+  		</div>
+  		
+	</div>
+
+</body>
+</html>
