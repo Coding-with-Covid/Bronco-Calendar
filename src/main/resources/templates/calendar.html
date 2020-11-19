@@ -44,7 +44,7 @@ html, body {
 			initialDate : '2020-11-20',
 			headerToolbar : {
 				left : 'prev,next today',
-				center : 'title',
+				center : 'title addEventButton',
 				right : 'dayGridMonth,timeGridWeek,timeGridDay'
 			},
 			events : [ {
@@ -62,7 +62,31 @@ html, body {
 			}, {
 				title : 'Live Group Fitness: Boxing',
 				start : '2020-12-02T10:00:00'
-			} ]
+			} ],
+			customButtons: {
+				addEventButton: {
+					text: 'Add Event',
+					click: function() {
+						var dateStr = prompt('Enter a Date in YYYY-MM-DD Format');
+						var titleStr = prompt('Enter Event Title and Time ');
+						var date = new Date(dateStr + 'T00:00:00'); // will be in local time
+
+						if (!isNaN(date.valueOf())) { // valid?
+							calendar.addEvent({
+							title: titleStr,
+							start: date,
+							allDay: true
+						});
+						alert('Event Added!');
+						} 
+						else {
+							alert('Invalid Please Try Again');
+						}
+					}
+				}
+  			}
+
+			
 		});
 
 		calendar.render();
