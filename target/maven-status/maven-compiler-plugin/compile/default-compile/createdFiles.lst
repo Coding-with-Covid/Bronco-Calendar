@@ -1,0 +1,17 @@
+<<<<<<< Updated upstream
+=======
+com\example\springboot\Calendar.class
+com\example\springboot\EventRepository.class
+com\example\springboot\data\provider\BroncoEventProductProvider.class
+com\example\springboot\Application.class
+com\example\springboot\Event.class
+com\example\springboot\DaysBetween.class
+com\example\springboot\WebController.class
+com\example\springboot\data\provider\EventProductProvider.class
+com\example\springboot\data\EventProduct.class
+EventList\EventList.class
+com\example\springboot\myBarEvents.class
+com\example\springboot\Concatenation.class
+com\example\springboot\HomeController.class
+com\example\springboot\CPPEvents.class
+>>>>>>> Stashed changes
