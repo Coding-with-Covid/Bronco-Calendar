@@ -36,8 +36,13 @@ public class CPPEvents {
                 Element myDateAndLoc = dateAndLoc.get(i);
                 Element myTitleAndDesc = titleAndDesc.get(i);
 
-                String date = (myDateAndLoc.childNode(0)).childNode(0).toString();
-                date = formatDate(date);
+                String dateTime = (myDateAndLoc.childNode(0)).childNode(0).toString();
+                //date = formatDate(date);
+                String[] dateTimeArray = dateTimeAsArray(dateTime);
+                String month = dateTimeArray[0];
+                String date = dateTimeArray[1];
+                String time = dateTimeArray[2];
+
                 String title = (((myTitleAndDesc.childNode(0)).childNode(0)).childNode(0)).childNode(0).toString();
 
                 // Some events don't have a location
@@ -64,10 +69,58 @@ public class CPPEvents {
                 String[] majors = {};
 
                 // Add event to list of events
-                events.add(new Event(title, date, "", loc, desc, majors, "", "", "", ""));
+                events.add(new Event(title, dateTime, "", loc, desc, majors, month, date, time, ""));
             }
         }
         return events;
+    }
+
+    private String[] dateTimeAsArray(String text) {
+        String[] dateTime = {"","",""};
+        String[] tokens = text.split("\\|"); // Split string by using | as delimiter
+        dateTime[0] = getMonth(tokens[0]);
+        dateTime[1] = getDate(tokens[0]);
+        dateTime[2] = getTime(tokens[1]);
+        return dateTime;
+    }
+
+    private String getMonth(String text) {
+        if (text.contains("January")) return "January";
+        else if (text.contains("February")) return "February";
+        else if (text.contains("March")) return "March";
+        else if (text.contains("April")) return "April";
+        else if (text.contains("May")) return "May";
+        else if (text.contains("June")) return "June";
+        else if (text.contains("July")) return "July";
+        else if (text.contains("August")) return "August";
+        else if (text.contains("September")) return "September";
+        else if (text.contains("October")) return "October";
+        else if (text.contains("November")) return "November";
+        else if (text.contains("December")) return "December";
+        else return "";
+    }
+
+    private String getDate(String text) {
+        String[] tokens = text.split(",");
+        String temp = tokens[1];
+        int date = Integer.parseInt(temp.replaceAll("[\\D]", ""));
+        return String.format("%02d", date);  // Pad with 0's for width 2
+    }
+
+    private String getTime(String text) {
+        text = text.replace("&nbsp;", "");
+        String[] tokens = text.split("–");
+        String time = tokens[0];
+        time.replaceAll("[\\D]", "");
+        if (text.contains("am")) {
+            if (time.contains("am")) return time;
+            time += "am";
+        }
+        else {
+            if (time.contains("pm")) return time;
+            time += "pm";
+        }
+        return time;
     }
 
     private String formatDate(String text) {

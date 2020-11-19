@@ -1,7 +1,6 @@
 package com.example.springboot;
 
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
@@ -12,7 +11,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter{
 	    public void configure(HttpSecurity httpSecurity) throws Exception {
 	        httpSecurity.csrf().disable().antMatcher("/**").authorizeRequests()
 	                .antMatchers("/","/calender", "/login", "welcome").authenticated()
-	                .antMatchers("/home", "/events", "/").permitAll()
+	                .antMatchers("/home", "/events", "/events.css", "/").permitAll()
 	                .anyRequest().authenticated()
 	                .and()
 	                .oauth2Login().permitAll()
@@ -21,10 +20,5 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter{
 	                .invalidateHttpSession(true)
 	                .clearAuthentication(true)
 	                .logoutSuccessUrl("/");
-	    }
-	 
-	 @Override
-	    public void configure(WebSecurity web) throws Exception {
-	        web.ignoring().antMatchers("/resources/**").anyRequest();
 	    }
 }
