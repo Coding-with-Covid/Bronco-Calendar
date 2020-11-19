@@ -21,4 +21,9 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter{
 	                .clearAuthentication(true)
 	                .logoutSuccessUrl("/");
 	    }
+	 
+	 @Override
+	    public void configure(WebSecurity web) throws Exception {
+	        web.ignoring().antMatchers("/resources/**").anyRequest();
+	    }
 }
