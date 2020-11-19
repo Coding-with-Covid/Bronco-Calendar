@@ -69,7 +69,7 @@ public class myBarEvents {
 			description = (description.replace("Description", ""));
 			
 			
-			Event event = new Event(title, dateTime, hostedBy, location, description, majorsList ); 
+			Event event = new Event(title, dateTime, hostedBy, location, description, majorsList, "", "", "", "" );
 			events.add(event);
 			
 			

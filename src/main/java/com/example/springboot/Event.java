@@ -14,16 +14,27 @@ public class Event {
     public String desc;
     public String[] majors;
 
+    public String month;
+    public String date;
+    public String time;
+    public String img;
+
     public Event() {
     }
 
-    public Event(String title, String dateTime, String hostedBy, String location, String desc, String[] majors) {
+    public Event(String title, String dateTime, String hostedBy, String location, String desc, String[] majors, String month, String date, String time, String img) {
         this.title = title;
         this.dateTime = dateTime;
         this.hostedBy = hostedBy;
         this.location = location;
         this.desc = desc;
         this.majors = majors;
+
+        this.month = month;
+        this.date = date;
+        this.time = time;
+        this.img = img;
+
     }
 
     @Override

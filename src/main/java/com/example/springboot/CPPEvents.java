@@ -64,7 +64,7 @@ public class CPPEvents {
                 String[] majors = {};
 
                 // Add event to list of events
-                events.add(new Event(title, date, "", loc, desc, majors));
+                events.add(new Event(title, date, "", loc, desc, majors, "", "", "", ""));
             }
         }
         return events;
