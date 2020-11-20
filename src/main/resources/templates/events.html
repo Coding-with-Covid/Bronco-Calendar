@@ -37,7 +37,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Bronco Calendar Events</title>
-        <link rel="stylesheet" th:href="@{/events.css}" type="text/css"/>
+        <link rel="stylesheet" th:href="@{events.css}" type="text/css"/>
         <link rel="stylesheet" href="../static/events.css" type="text/css">
 
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
@@ -52,26 +52,32 @@
 
     <!-- Have this whole body repeat itself for every event -->
     <body ng-controller="EventsCtrl">
-        <div class="event-container" th:each="event: ${event}">
-            <div class="event">
-                <div class="event-left">
-                    <div class="event-date">
-                        <div class="event-image">Event Image</div>
-                        <div class="day" th:text="${event.date}"></div>
-                        <div class="month" th:text="${event.month}"></div>
+        <div class="wrapper" >
+            <div class="event_post" th:each="event: ${event}">
+                <div class="left_pane">
+                    <div class="img_pod">
+                        <img th:src="${event.img}" onerror="this.onerror=null; 
+                        this.src='https://www.cpp.edu/outreach/img/outreach_landing-page/billybronco'" 
+                        alt="No image"> 
                     </div>
+                    <h3 class="month" th:text="${event.month} + ' ' + ${event.date}">November 14</h3>
+                    <h3 class="time" th:text="${event.time}">Time</h3>
                 </div>
-                <div class="event-right">
-                    <h3 class="event-title" th:text="${event.title}"></h3>
-                    <h4 class="club-name" th:text="${event.hostedBy}"></h4>
-                    <div class="event-description" th:text="${event.desc}"></div>
-                    <div class="event-details">
-                        <div class="event-timing" th:text="${event.time}"></div>
-                        <div class="event-location" th:text="${event.location}"></div>
-                    </div>
-                </div>
-            </div>
+                <div class="container_copy">
+                    <h1 class="title" th:text="${event.title}">Some long ass title here
+                        Civic Talks presented by ASI Governmental Affairs
+                    </h1>
+                    <h5 class="hostedBy" th:text="${event.hostedBy}" alt="cpp">Some long ass host name
+                        here Civic Talks presented by ASI Governmental Affairs
+                    </h5>
+                    <h4 class="location" th:text="${event.location}">location</h4>
+                    <p class="desc" th:text="${event.desc}">Some big ass description here Lorem 
+                        ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt optio ea 
+                        dolor maiores facere cum corrupti at tenetur accusamus ipsam officia 
+                        odio pariatur esse sed magnam, dolorum veniam molestias ratione?</p>
+                </div>                    
+
+            </div>  
         </div>
     </body>
-
 </html>
