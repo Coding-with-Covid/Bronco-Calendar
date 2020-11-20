@@ -41,7 +41,18 @@ public class Application implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		//repo.deleteAll();
+		// fetch all events to console
+		System.out.println("Customers found with findAll():");
+		System.out.println("-------------------------------");
+		for (Event event : repo.findAll()) {
+			System.out.println(event);
+		}
+		System.out.println();
+	
+		// fetch an individual customer
+		System.out.println("Event found with findByTitle'General Registration Period -Winter 2021'):");
+		System.out.println("--------------------------------");
+		System.out.println(repo.findByTitle("General Registration Period -Winter 2021"));
 	}
 
 	@Scheduled(cron = "0 0 12 * * ?")
