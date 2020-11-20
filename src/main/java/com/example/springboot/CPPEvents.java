@@ -37,11 +37,12 @@ public class CPPEvents {
                 Element myTitleAndDesc = titleAndDesc.get(i);
 
                 String dateTime = (myDateAndLoc.childNode(0)).childNode(0).toString();
-                //date = formatDate(date);
+
                 String[] dateTimeArray = dateTimeAsArray(dateTime);
                 String month = dateTimeArray[0];
                 String date = dateTimeArray[1];
                 String time = dateTimeArray[2];
+                dateTime = formatDate(dateTime);
 
                 String title = (((myTitleAndDesc.childNode(0)).childNode(0)).childNode(0)).childNode(0).toString();
 
@@ -69,7 +70,7 @@ public class CPPEvents {
                 String[] majors = {};
 
                 // Add event to list of events
-                events.add(new Event(title, dateTime, "", loc, desc, majors, month, date, time, ""));
+                events.add(new Event(title, dateTime, "", loc, desc, majors, month, date, time, "https://media.licdn.com/dms/image/C560BAQH8mLo7H_WXuQ/company-logo_200_200/0?e=2159024400&v=beta&t=XzWwTpZ1F1HZ_OOj_xKkBDX9pcDvsdqOkRFU3E_C7J8"));
             }
         }
         return events;
@@ -155,9 +156,18 @@ public class CPPEvents {
     }
 
     private String parseYear(String text) {
-        String trimmed = text.trim();
-        int year = Integer.parseInt(trimmed);
-        return Integer.toString(year);
+        if (text.contains("2020")) {
+            return "2020";
+        }
+        else if (text.contains("2021")) {
+            return "2021";
+        }
+        else {
+            return "2020";
+        }
+//        String trimmed = text.trim();
+//        int year = Integer.parseInt(trimmed);
+//        return Integer.toString(year);
     }
 
     private String parseHour(String text) {
