@@ -20,7 +20,10 @@ public class HomeController {
         this.eventService = eventService;
     }
 	
-	@RequestMapping(value = "/home", method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String testHome1() { return "home.html"; }
+	
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
     public String testHome() { return "home.html"; }
 
     @GetMapping({"/events"})
@@ -34,12 +37,6 @@ public class HomeController {
     public String testCalendar() {
         return "calendar.html";
     }
-    
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String testLogin() { return "login.html"; }
-
-    @RequestMapping(value = "/signup", method = RequestMethod.GET)
-    public String testSignUp() { return "signup.html"; }
     
     @RequestMapping(value = "/welcome", method = RequestMethod.GET)
     public String testWelcome() { return "welcome.html"; }
