@@ -26,25 +26,22 @@ body {
 }
 
 .event_post {
-    margin-top: 32px;
-    position: relative;
-    padding: 6rem 3rem 6rem 6rem;
-    background: #fff;
-    max-width: 1200px;
-    height: 375px;
-    border-radius: 10px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -170%);
-    box-shadow: 1px 1px 2rem rgba(0, 0, 0, 0.3);
-    flex: 50%;
+  max-width: 1200px; 
+  margin: 0 auto;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  position: relative;
+  padding: 6rem 3rem 6rem 6rem;
+  background: #fff;
+  height: 375px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 2rem rgba(0, 0, 0, 0.3);
   }
 
 .img_pod {
   height: 170px;
   width: 268px;
   background: linear-gradient(90deg,  #ff9966, #ff5e62);
-  z-index: -1;
   box-shadow: 1px 1px 2rem rgba(0, 0, 0, 0.3);
   border-radius: 5%;
   position: absolute;
@@ -145,5 +142,3 @@ img {
   transition: all .2s ease-in;
   text-decoration: none;
 }
-
-Resources1×0.5×0.25×Rerun
