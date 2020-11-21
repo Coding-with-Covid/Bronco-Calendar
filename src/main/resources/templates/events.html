@@ -67,6 +67,9 @@
                     <h1 class="title" th:text="${event.title}">Some long ass title here
                         Civic Talks presented by ASI Governmental Affairs
                     </h1>
+
+                    <button type="button" th:onclick="addUserEvent([[${event.title}]], [[${event.dateTime}]])">Save event</button>
+
                     <h5 class="hostedBy" th:text="${event.hostedBy}" alt="cpp">Some long ass host name
                         here Civic Talks presented by ASI Governmental Affairs
                     </h5>
@@ -80,4 +83,17 @@
             </div>  
         </div>
     </body>
+
+    <script>
+        function addUserEvent(title, time) {
+            var calendarEvent = {
+                title: title,
+                time: time
+            };
+            var json = JSON.stringify(calendarEvent);
+
+            // write JSON string to page just for testing purposes
+            //document.write(json)
+        }
+    </script>
 </html>
