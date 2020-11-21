@@ -25,7 +25,7 @@ public class myBarEvents {
 		WebDriver driver = new ChromeDriver(options);
 		driver.get("https://mybar.cpp.edu/events");
 		
-		for(int x = 0; x <= 2; x++) {
+		for(int x = 0; x <= 1; x++) {
 			driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div[2]/div[2]/div/div[2]/div[2]/div[2]/button")).click();
 			try {
 				TimeUnit.SECONDS.sleep(1);
@@ -34,6 +34,7 @@ public class myBarEvents {
 				e.printStackTrace();
 			}
 		}
+		System.out.println("Loaded more events");
 		
 		List<WebElement> linkNames = driver.findElements(By.tagName("a"));
 		
@@ -45,7 +46,7 @@ public class myBarEvents {
 				links.add(link);
 			}
 		}
-		System.out.println(links.size());
+		System.out.println("# of links:" + links.size());
 		driver.quit();
 		
 		ArrayList<Event> events = new ArrayList<Event>();
@@ -57,11 +58,9 @@ public class myBarEvents {
 			ChromeOptions linkOptions = new ChromeOptions();
 			linkOptions.addArguments("--headless", "--disable-gpu", "--window-size=1920,1200","--ignore-certificate-errors");
 			WebDriver linkDriver = new ChromeDriver(linkOptions);
-			
 			linkDriver.get(link);
 			
 			String title = getString(linkDriver,"/html/body/div[2]/div/div/div/div/div/div/div[1]/div/div/div[2]/div[1]/div/div/span[1]/h1");
-			
 			String dateTime = getString(linkDriver,"/html/body/div[2]/div/div/div/div/div/div/div[1]/div/div/div[2]/div[2]/div[1]/div/div[2]/p[1]");
 			dateTime = dateTime.substring(0, dateTime.length() - 3);
 			String month = getMonth(dateTime);
@@ -71,34 +70,19 @@ public class myBarEvents {
 			String dateFormatted = formatDate(year, month, day, time);
 			
 			String hostedBy = getString(linkDriver, "/html/body/div[2]/div/div/div/div/div/div/div[3]/div/a/div/div/span/div/div/h3");
-															  
 			String location = getString(linkDriver, "/html/body/div[2]/div/div/div/div/div/div/div[1]/div/div/div[2]/div[2]/div[2]/div/div[2]/p");
-															    
 			String description = getString(linkDriver, "/html/body/div[2]/div/div/div/div/div/div/div[2]/div[1]");
 			description = (description.replace("Online Location Instructions", ""));
 			description = (description.replace("Description", ""));
 			
-			WebElement image = null;
-			String imageURL = null;
-			for(int i=0; i<=2;i++){
-				  try{
-					  image = linkDriver.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div/div/div[1]/div/div/div[1]/div"));
-					  break;
-				  }
-				  catch(Exception e){
-				     System.out.println(e.getMessage());
-				  }
-			}
-			imageURL = image.getCssValue("background-image");
-			imageURL = (imageURL.replace("url(\"", ""));
-			imageURL = (imageURL.replace("\")", ""));
+			String imageURL = getURL(linkDriver, "/html/body/div[2]/div/div/div/div/div/div/div[1]/div/div/div[1]/div");
 			
 			Event event = new Event(title, dateFormatted, hostedBy, location, description, majorsList, month, day, time, imageURL); 
 			events.add(event);			
 			
 			linkDriver.quit();
 		}
-		System.out.println("Done");
+		System.out.println("Done Scraping");
 		return events;
 	}
 	
@@ -107,6 +91,22 @@ public class myBarEvents {
 			  try{
 				 String string = driver.findElement(By.xpath(xpath)).getText();
 				 return string;
+			  }
+			  catch(Exception e){
+			     System.out.println(e.getMessage());
+			  }
+		}
+		return null;
+	}
+	
+	public String getURL(WebDriver driver, String xpath) {
+		for(int i=0; i<=2;i++){
+			  try{
+				 WebElement image = driver.findElement(By.xpath(xpath));
+				 String imageURL = image.getCssValue("background-image");
+				 imageURL = (imageURL.replace("url(\"", ""));
+				 imageURL = (imageURL.replace("\")", ""));
+				 return imageURL;
 			  }
 			  catch(Exception e){
 			     System.out.println(e.getMessage());
