@@ -45,6 +45,7 @@ public class CPPEvents {
                 dateTime = formatDate(dateTime);
 
                 String title = (((myTitleAndDesc.childNode(0)).childNode(0)).childNode(0)).childNode(0).toString();
+                title = title.replace("&amp;", "&");
 
                 // Some events don't have a location
                 String loc = "";
@@ -205,6 +206,7 @@ public class CPPEvents {
         String s = desc;
         // Use regex to get rid of tags
         s = s.replaceAll("<[^>]*>", "");
+        s = s.replace("&nbsp;", "");
         return s;
     }
 }
