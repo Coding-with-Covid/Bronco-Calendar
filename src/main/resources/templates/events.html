@@ -84,7 +84,9 @@
         </div>
     </body>
 
-    <script>
+    <!-- Script to add user events using JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
         function addUserEvent(title, time) {
             var calendarEvent = {
                 title: title,
@@ -92,8 +94,14 @@
             };
             var json = JSON.stringify(calendarEvent);
 
-            // write JSON string to page just for testing purposes
-            //document.write(json)
+        $.ajax({
+            type: "POST",
+            data: 'json=' + json,
+            url: 'https://ineedtophp.000webhostapp.com/addUserEvent.php',
+        });
+
+        <!-- write JSON string to page just for testing purposes -->
+        <!-- document.write(json) -->
         }
     </script>
 </html>
