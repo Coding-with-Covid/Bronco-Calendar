@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<!-- This part is for the top navigation bar -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Bronco Calendar Events</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+    <div class="w3-bar w3-white w3-large">
+        <a onclick="goBack()" class="w3-bar-item w3-button w3-green w3-mobile"><i
+                class="fa fa-arrow-left w3-margin-right"></i>Back</a>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+
+</html>
+
+<!-- This part is for the events themselves -->
+<html ng-app="appEvents" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{events.css}" type="text/css" />
+    <link rel="stylesheet" href="../static/events.css" type="text/css">
+    <link rel="stylesheet" href="events.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script src="js/events.js"></script>
+
+</head>
+
+<!-- Have this whole body repeat itself for every event -->
+<body>
+
+    <div class="event_post" th:each="event: ${event}">
+
+        <div class="title" th:text="${event.title}">Some long ass title here
+            Civic Talks presented by ASI Governmental Affairs</div>
+
+        <div class="event_container">
+
+            <!--Left hand pane contains image and date-->
+            <div class="container_left">
+                <div class="img_box">
+                    <img class="img" src="https://mybar.cpp.edu/image/785d9787-81ca-4a77-b66c-e088f6b0d0daa31dd545-9452-4941-93b2-44a994119e40.png?preset=large-w"
+                    th:src="${event.img}" onerror="this.onerror=null; 
+                    this.src='https://www.cpp.edu/outreach/img/outreach_landing-page/billybronco'" alt="No image">
+                </div>
+                <h3 class="date" th:text="${event.day} + ', ' + ${event.month} + ' ' + ${event.date}
+                ">Thursday, November 12</h3>
+                <h3 class="time" th:text="${event.time}">Event time</h3>
+            </div>
+            
+            <!--Right hand pane contains host, location, and description-->
+            <div class="container_right">
+                <h5 class="hostedBy" th:text="${event.hostedBy}" alt="Cal Poly Pomona">Some long ass host name
+                    here Civic Talks presented by ASI Governmental Affairs</h5>
+                <h4 class="location" th:text="${event.location}">location</h4>
+                <p class="desc" th:text="${event.desc}">Some big ass description here Lorem
+                    ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt optio ea
+                    dolor maiores facere cum corrupti at tenetur accusamus ipsam officia
+                    odio pariatur esse sed magnam, dolorum veniam molestias ratione?
+                    asdfasdfasfa asdf asdf sad fasd fasd fasdf asdf sda fasd fsd fas d sdaf
+                    sdafsdafsda fasd fsad fasd fasd fsad fasd fsd fsd fasf sda fsad fasd fasd
+                    sda fasdf asd fsad fsd fsad fsd fsad fsdf asd fsdaf sd fasd fsd fsad fasd
+                    a asdf asdf sad fasd fasd fasdf asdf sda fasd fsd fas d sdaf
+                    sdafsdafsda fasd fsad fasd fasd fsad fasd fsd fsd fasf sda fsad fasd fasd
+                    sda fasdf asd fsad fsd fsad fsd fsad fsdf asd fsdaf sd fasd fsd fsad fasd
+                    ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt optio ea
+                    dolor maiores facere cum corrupti at tenetur accusamus ipsam officia
+                    odio pariatur esse sed magnam, dolorum veniam molestias ratione?
+                    asdfasdfasfa asdf asdf sad fasd fasd fasdf asdf sda fasd fsd fas d sdaf
+                    sdafsdafsda fasd fsad fasd fasd fsad fasd fsd fsd fasf sda fsad fasd fasd
+                    sda fasdf asd fsad fsd fsad fsd fsad fsdf asd fsdaf sd fasd fsd fsad fasd
+                    a asdf asdf sad fasd fasd fasdf asdf sda fasd fsd fas d sdaf
+                    sdafsdafsda fasd fsad fasd fasd fsad fasd fsd fsd fasf sda fsad fasd fasd
+                    sda fasdf asd fsad fsd fsad fsd fsad fsdf asd fsdaf sd fasd fsd fsad fasd
+                    ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt optio ea
+                    dolor maiores facere cum corrupti at tenetur accusamus ipsam officia
+                    odio pariatur esse sed magnam, dolorum veniam molestias ratione?
+                    asdfasdfasfa asdf asdf sad fasd fasd fasdf asdf sda fasd fsd fas d sdaf
+                    sdafsdafsda fasd fsad fasd fasd fsad fasd fsd fsd fasf sda fsad fasd fasd
+                    sda fasdf asd fsad fsd fsad fsd fsad fsdf asd fsdaf sd fasd fsd fsad fasd
+                    a asdf asdf sad fasd fasd fasdf asdf sda fasd fsd fas d sdaf
+                    sdafsdafsda fasd fsad fasd fasd fsad fasd fsd fsd fasf sda fsad fasd fasd
+                    sda fasdf asd fsad fsd fsad fsd fsad fsdf asd fsdaf sd fasd fsd fsad fasd</p>
+            </div>
+
+        </div>
+
+        <!--da button (not here on this version) -->
+        <div class="button_container">
+            
+        </div>
+    </div>
+
+</body>
+
+<script>
+    function addUserEvent(title, time) {
+        var calendarEvent = {
+            title: title,
+            time: time
+        };
+        var json = JSON.stringify(calendarEvent);
+
+        // write JSON string to page just for testing purposes
+        //document.write(json)
+    }
+</script>
+
+</html>
