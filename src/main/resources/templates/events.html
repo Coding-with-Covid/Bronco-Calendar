@@ -104,22 +104,28 @@
 
         <!--da button-->
         <div class="button_container">
-            <button class="button" type="button">Save Event to Calendar</button>
+            <button class="button" type="button" th:onclick="addUserEvent([[${event.title}]], [[${event.dateTime}]])">Save Event to Calendar</button>
         </div>
     </div>
 
 </body>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     function addUserEvent(title, time) {
         var calendarEvent = {
             title: title,
-            time: time
+            start: time
         };
         var json = JSON.stringify(calendarEvent);
 
-        // write JSON string to page just for testing purposes
-        //document.write(json)
+        $.ajax({
+            type: "POST",
+            data: 'json=' + json,
+            url: 'https://ineedtophp.000webhostapp.com/addUserEvent.php',
+        });
+
+        alert('Event saved!');
     }
 </script>
 
