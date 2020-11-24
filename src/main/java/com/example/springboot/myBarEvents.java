@@ -65,9 +65,10 @@ public class myBarEvents {
 			dateTime = dateTime.substring(0, dateTime.length() - 3);
 			String month = getMonth(dateTime);
 			String year = getYear(dateTime);
-			String day = getDay(dateTime, month, year);
+			String date = getDate(dateTime, month, year);
 			String time = getTime(dateTime);
-			String dateFormatted = formatDate(year, month, day, time);
+			String dateFormatted = formatDate(year, month, date, time);
+			String day = getDay(dateTime);
 			
 			String hostedBy = getString(linkDriver, "/html/body/div[2]/div/div/div/div/div/div/div[3]/div/a/div/div/span/div/div/h3");
 			String location = getString(linkDriver, "/html/body/div[2]/div/div/div/div/div/div/div[1]/div/div/div[2]/div[2]/div[2]/div/div[2]/p");
@@ -77,8 +78,8 @@ public class myBarEvents {
 			
 			String imageURL = getURL(linkDriver, "/html/body/div[2]/div/div/div/div/div/div/div[1]/div/div/div[1]/div");
 			
-			Event event = new Event(title, dateFormatted, hostedBy, location, description, majorsList, "", month, day, time, imageURL);
-			events.add(event);			
+			Event event = new Event(title, dateFormatted, hostedBy, location, description, majorsList, day, month, date, time, imageURL);
+			events.add(event);	
 			
 			linkDriver.quit();
 		}
@@ -131,7 +132,18 @@ public class myBarEvents {
 		return null;
 	}
 	
-	public String getDay(String dateTime, String month, String year) {
+	public String getDay(String str) {
+		if(str.contains("Monday"))return "Monday";
+		else if(str.contains("Tuesday"))return "Tuesday";
+		else if(str.contains("Wednesday"))return "Wednesday";
+		else if(str.contains("Thursday"))return "Thursday";
+		else if(str.contains("Friday"))return "Friday";
+		else if(str.contains("Saturday"))return "Saturday";
+		else if(str.contains("Sunday"))	return "Sunday";
+		return null;
+	}
+	
+	public String getDate(String dateTime, String month, String year) {
 		String day = dateTime.substring(dateTime.indexOf(month) + month.length() + 1, dateTime.indexOf(" " + year));
 		day = day.substring(0, Math.min(day.length(), 2));
 		return day;
