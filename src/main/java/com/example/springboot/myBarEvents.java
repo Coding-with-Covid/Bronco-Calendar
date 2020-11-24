@@ -77,7 +77,7 @@ public class myBarEvents {
 			
 			String imageURL = getURL(linkDriver, "/html/body/div[2]/div/div/div/div/div/div/div[1]/div/div/div[1]/div");
 			
-			Event event = new Event(title, dateFormatted, hostedBy, location, description, majorsList, month, day, time, imageURL); 
+			Event event = new Event(title, dateFormatted, hostedBy, location, description, majorsList, "", month, day, time, imageURL);
 			events.add(event);			
 			
 			linkDriver.quit();

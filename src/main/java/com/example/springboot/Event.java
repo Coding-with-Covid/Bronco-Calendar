@@ -17,18 +17,21 @@ public class Event {
     public String month;
     public String date;
     public String time;
+    public String day;
     public String img;
 
     public Event() {
     }
 
-    public Event(String title, String dateTime, String hostedBy, String location, String desc, String[] majors, String month, String date, String time, String img) {
+    public Event(String title, String dateTime, String hostedBy, String location, String desc, String[] majors, String day, String month, String date, String time, String img) {
         this.title = title;
         this.dateTime = dateTime;
         this.hostedBy = hostedBy;
         this.location = location;
         this.desc = desc;
         this.majors = majors;
+
+        this.day = day;
 
         this.month = month;
         this.date = date;
