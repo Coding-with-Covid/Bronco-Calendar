@@ -33,6 +33,15 @@ public class HomeController {
         return "events";
     }
 
+    @GetMapping({"/eventsLoggedOut"})
+    public String eventLoggedOut(Model model) {
+        List<Event> events = (List<Event>) eventService.getAllEvents();
+        model.addAttribute("event", events);
+        return "eventsLoggedOut";
+    }
+
+
+
     @RequestMapping(value = "/calendar", method = RequestMethod.GET)
     public String testCalendar() {
         return "calendar.html";
