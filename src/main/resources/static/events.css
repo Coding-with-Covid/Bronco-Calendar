@@ -134,11 +134,25 @@ transform: translateY(4px);
     font-size: 1.5rem;
   }
 
-  .time_container{
-    float: right;
+  .date_time_container {
+    width: fit-content;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  .date {
+    width: auto;
+    float: left;
+    text-align: right;
+    padding-right: 4px;
+    font-size: 1.25rem;
   }
 
-  .time, .date { 
+  .time {
+    width: auto;
+    float: right;
+    text-align: left;
+    padding-left: 4px;
     font-size: 1.25rem;
   }
 

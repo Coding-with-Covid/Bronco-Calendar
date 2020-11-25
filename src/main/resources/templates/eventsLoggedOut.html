@@ -55,9 +55,11 @@
                     th:src="${event.img}" onerror="this.onerror=null; 
                     this.src='https://www.cpp.edu/outreach/img/outreach_landing-page/billybronco'" alt="No image">
                 </div>
-                <h3 class="date" th:text="${event.day} + ', ' + ${event.month} + ' ' + ${event.date}
-                ">Thursday, November 12</h3>
-                <h3 class="time" th:text="${event.time}">Event time</h3>
+                <div class="date_time_container">
+                    <h3 class="date" th:text="${event.day} + ', ' + ${event.month} + ' ' + ${event.date}
+                    ">Thursday, November 12</h3>
+                    <h3 class="time" th:text="${event.time}">Event time</h3>
+                </div>
             </div>
             
             <!--Right hand pane contains host, location, and description-->
