@@ -86,6 +86,7 @@ body {
 
 .desc {
   width: auto;
+  padding-right: 4px;
   max-height: 200px;
   font-size: 1.25rem;
   color: #333;
