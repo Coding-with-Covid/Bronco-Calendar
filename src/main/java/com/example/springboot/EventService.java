@@ -1,8 +1,10 @@
 package com.example.springboot;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Service
 public class EventService {
@@ -14,6 +16,8 @@ public class EventService {
    }
 
    public Iterable<Event> getAllEvents() {
-      return eventRepository.findAll(Sort.by("dateTime"));
+      LocalDateTime dateTime = LocalDateTime.now();
+      DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
+      return eventRepository.findByDateTimeGreaterThanOrderByDateTimeAsc(dateTime.format(formatter));
    }
 }

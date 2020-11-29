@@ -7,4 +7,5 @@ public interface EventRepository extends MongoRepository<Event, String> {
 
     public Event findByTitle(String title);
     public boolean existsEventByTitle(String title);
+    public Iterable<Event> findByDateTimeGreaterThanOrderByDateTimeAsc(String dateTime);
 }
